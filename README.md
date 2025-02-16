@@ -1,19 +1,19 @@
-**Shape Editor**
+# Shape Editor
 
 Implemented a 2d-shape editor to support following shapes:
- • Line
- • Triangle
- • Square
- • Rectangle
- • Circle
- • Ellipse
- • Curve
- • Poly-line
- • Polygon
+* Line
+ 2. Triangle
+ 3. Square
+ 4. Rectangle
+ 5. Circle
+ 6. Ellipse
+ 7. Curve
+ 8. Poly-line
+ 9. Polygon
  
  It is possible to do following operations:
  • New – to clear and start a new diagram [Save option if “dirty”]
- • Selection
+   Selection
  • Translation, Scaling, Rotation
  • Unlimited Undo – via Undo button and ctrl-z
  • Unlimited Redo – via Redo button and ctrl-y
