@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2D Shape Editor</title>
+    <style>
+        #main-container {
+            margin-top: 10px;
+            display: flex;
+        }
+
+        #canvasContainer {
+            flex: 1;
+            cursor: crosshair;
+        }
+
+        #myCanvas {
+            border: 1px solid black;
+            cursor: crosshair;
+        }
+
+        #instructions {
+            margin-left: 20px;
+        }
+
+        #toolbar {
+            display: flex;
+            flex-direction: column;
+            /* Stack elements vertically */
+        }
+
+        #toolbar5 {
+            display: flex;
+            flex-direction: row;
+            /* Stack elements vertically */
+        }
+
+        #toolbar1 {
+            display: flex;
+            flex-direction: row;
+            /* Stack elements vertically */
+        }
+
+        #toolbar2 {
+            display: flex;
+            flex-direction: row;
+            /* Stack elements vertically */
+        }
+
+        #toolbar3 {
+            display: flex;
+            flex-direction: row;
+            /* Stack elements vertically */
+        }
+
+        button {
+            margin-right: 5px;
+        }
+
+        #shapeSelect {
+            margin-right: 10px;
+        }
+
+        #colorSelect {
+            margin-right: 10px;
+        }
+
+        #thicknessSelect {
+            margin-right: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="main-container" style="margin: 0 auto; width: fit-content;">
+        <div id="canvasContainer">
+            <canvas id="myCanvas" width="780" height="720" style="background-color: #7BC2F2;"></canvas>
+            <!--<div id="grid" style="position: absolute; top: 0; left: 0; display: none;"></div> -->
+        </div>
+        <div style="margin-left: 20px;">
+            <!-- This empty div adds a blank line with a top margin of 20px -->
+        </div>
+        <div id="toolbar">
+            <p style="font-weight: bold; font-size: 40px;">Instructions for 2D Shape Editor</p>
+            <p style="font-weight: bold; font-size: 20px;">Click on the below buttons for corresponsing functions:</p>
+            <div id="toolbar1">
+                <button onclick="newPage()" title="Start a new canvas">New</button>
+                <button onclick="undo()" title="Undo the last action">Undo</button>
+                <button onclick="redo()" title="Redo the last action">Redo</button>
+                <button onclick="copy()" title="Copy an object">Copy</button>
+                <button onclick="paste()" title="Paste an object">Paste</button>
+                <button onclick="save()" title="Save the objects in JSON">Save JSON</button>
+                <button onclick="saveAsImage()" title="Save the objects in JPEG">Save JPEG</button>
+                <button onclick="Grid()" title="Toggle Grid on and off">Grid</button>
+                <a href="help.html" target="_blank">Help</a>
+            </div>
+            <div id="toolbar5">
+                <button onclick="zoomIn()" title="Zoom In">Zoom-In</button>
+                <button onclick="zoomOut()" title="Zoom Out">Zoom-Out</button>
+                <button onclick="exportToPDF()">Export as PDF</button>
+            </div>
+            <div style="margin-top: 30px;">
+                <!-- This empty div adds a blank line with a top margin of 20px -->
+            </div>
+            <p style="font-weight: bold; font-size: 20px;">Browse a JSON file and click load to load it to the
+                canvas.(Note: Already existing objects will get cleared.)</p>
+            <div id="toolbar2">
+                <input type="file" id="fileInput" accept=".json">
+                <button onclick="load()">Load</button>
+            </div>
+            <div style="margin-top: 30px;">
+                <!-- This empty div adds a blank line with a top margin of 20px -->
+            </div>
+            <p style="font-weight: bold; font-size: 20px;">Select the shape from the below dropdown. You can choose the
+                colour and thickness as well.</p>
+            <div id="toolbar3">
+                <label for="shapeSelect">Select shape:</label>
+                <select id="shapeSelect">
+                    <option value="line">Line </option>
+                    <option value="triangle">Triangle</option>
+                    <option value="square">Square</option>
+                    <option value="rectangle">Rectangle</option>
+                    <option value="circle">Circle</option>
+                    <option value="ellipse">Ellipse</option>
+                    <option value="curve">Curve</option>
+                    <option value="polyline">Poly-line</option>
+                    <option value="polygon">Polygon</option>
+                </select>
+                <label for="colorSelect">Select color:</label>
+                <select id="colorSelect">
+                    <option value="blue">Blue</option>
+                    <option value="purple">Purple</option>
+                    <option value="green">Green</option>
+                    <option value="brown">Brown</option>
+                </select>
+                <label for="thicknessSelect">Select thickness:</label>
+                <select id="thicknessSelect">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <!--<label for="modeSelect">Mode:</label>
+                <select id="modeSelect" onchange="setMode(this.value)">
+                    <option value="draw">Select</option>
+                    <option value="move">move</option>
+                    <option value="scale">scale</option>
+                    <option value="rotate">Rotate</option>
+                </select> -->
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script defer src="script.js"></script>
+
+</body>
+
+</html>
